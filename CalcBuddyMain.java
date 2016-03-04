@@ -1,12 +1,13 @@
+import javax.swing.JFrame;
+
 public class CalcBuddyMain{
 	public static void main(String[] args) {
-		PowerRule a = new PowerRule("3x^2");
-
-
-		System.out.println(a.calcAnswer());
+		JFrame frame = new CalcBuddyFrame();
+		frame.setTitle("CalcBuddy");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
 		
 	}
-
 }
      
 
