@@ -5,29 +5,46 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
 
 public class CalcBuddyFrame extends JFrame{
 	
 	private JButton execute;
-	private JLabel label;
+	private JButton ch1;
+	private JButton ch2;
+	private JButton ch3;
+	private JButton ch4;
+	private JButton ch5;
+
+	private JLabel title;
 	private JTextField input;
 	private JPanel panel;
 	private JTextField output;
 
-	private static final int FRAME_WIDTH = 450;
-	private static final int FRAME_HEIGHT = 600;
+	private static final int FRAME_WIDTH = 962;
+	private static final int FRAME_HEIGHT = 663;
 	private static final int FIELD_WIDTH = 10;
+	BorderLayout borderLayout = new BorderLayout();
+	int hgap = 10;
+	borderLayout.setHgap(hgap);
 
 	private void placeComponents(){
-		createButton();
+		createButtons();
 		createTextField();
 		creatLabel();
+
 		panel = new JPanel();
-		panel.add(label);
+		panel.add(title, BorderLayout.PAGE_START);
 		panel.add(input);
 		panel.add(execute);
 		panel.add(output);
+
+
+		
 		add(panel);
+
+		
 	}
 
 	public CalcBuddyFrame(){
@@ -35,10 +52,12 @@ public class CalcBuddyFrame extends JFrame{
 		setSize(FRAME_WIDTH, FRAME_HEIGHT);
 	}
 
-	private void createButton(){
+	private void createButtons(){
 		execute = new JButton("calculate");
 		ActionListener listener = new EquationListener();
 		execute.addActionListener(listener);
+
+
 	}
 
 	private void createTextField(){
@@ -48,7 +67,7 @@ public class CalcBuddyFrame extends JFrame{
 	}
 
 	private void creatLabel(){
-		label = new JLabel("Please type in your equation");
+		title = new JLabel("CalcBuddy");
 	}
 
 	class EquationListener implements ActionListener{
