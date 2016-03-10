@@ -23,9 +23,17 @@ public class CalcBuddyFrame extends JFrame{
 	private JLabel title;
 	private JLabel explanation;
 	private JTextField input;
+
+
 	private JPanel leftPanel;
 	private JPanel rightPanel;
 	private JPanel generalPanel;
+	private JPanel chapterOne;
+	private JPanel chapterTwo;
+	private JPanel chapterThree;
+	private JPanel chapterFour;
+	private JPanel chapterFive;
+
 	private JTextField output;
 	private JSplitPane tb;
 	private JSplitPane jps;
@@ -59,8 +67,6 @@ public class CalcBuddyFrame extends JFrame{
 		gbcL = new GridBagConstraints();
 		leftPanel.setLayout(leftGrid);
 		gbcL.gridwidth = GridBagConstraints.REMAINDER;
-		//gbcL.gridheight = 1;
-		//gbcL.fill = GridBagConstraints.VERTICAL;
 		leftGrid.setConstraints(ch1, gbcL);
 		leftPanel.add(ch1);
 		leftGrid.setConstraints(ch2, gbcL);
@@ -80,13 +86,7 @@ public class CalcBuddyFrame extends JFrame{
 		rightPanel.add(output);
 
 		generalPanel.add(title);
-
-		
-
 		add(tb);
-
-
-
 		
 	}
 
@@ -102,18 +102,34 @@ public class CalcBuddyFrame extends JFrame{
 
 		ch1 = new JButton("Chapter 1");
 		ch1.setSize(new Dimension(40, 40));
+		ActionListener chapterOneListener = new PageListener();
+		ch1.setActionCommand("ch1");
+		ch1.addActionListener(chapterOneListener);
+		
 
 		ch2 = new JButton("Chapter 2");
 		ch2.setSize(new Dimension(40, 40));
+		ActionListener chapterTwoListener = new PageListener();
+		ch2.setActionCommand("ch2");
+		ch2.addActionListener(chapterTwoListener);
 
 		ch3 = new JButton("Chapter 3");
 		ch3.setSize(new Dimension(40, 40));
+		ActionListener chapterThreeListener = new PageListener();
+		ch3.setActionCommand("ch3");
+		ch3.addActionListener(chapterThreeListener);
 
 		ch4 = new JButton("Chapter 4");
 		ch4.setSize(new Dimension(40, 40));
+		ActionListener chapterFourListener = new PageListener();
+		ch4.setActionCommand("ch4");
+		ch4.addActionListener(chapterFourListener);
 
 		ch5 = new JButton("Chapter 5");
 		ch5.setSize(new Dimension(40, 40));
+		ActionListener chapterFiveListener = new PageListener();
+		ch5.setActionCommand("ch5");
+		ch5.addActionListener(chapterFiveListener);
 
 
 	}
@@ -130,10 +146,28 @@ public class CalcBuddyFrame extends JFrame{
 	}
 
 	class EquationListener implements ActionListener{
-		public void actionPerformed(ActionEvent event){
+		public void actionPerformed(ActionEvent e){
 			String equation = input.getText();
 			PowerRule a = new PowerRule(equation);
 			output.setText(a.calcAnswer());
+		}
+	}
+
+	class PageListener implements ActionListener{
+
+		public void actionPerformed(ActionEvent e){
+			String pageName = e.getActionCommand();
+			if(pageName.equals("ch1")){
+
+			} else if(pageName.equals("ch2")){
+
+			} else if(pageName.equals("ch3")){
+
+			} else if(pageName.equals("ch4")){
+
+			} else if(pageName.equals("ch5")){
+
+			}
 		}
 	}
 }

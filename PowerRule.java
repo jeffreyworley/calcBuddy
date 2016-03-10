@@ -203,7 +203,7 @@ public class PowerRule{
                     System.out.println("powerEnd: " + powerEnd);
                     newCoefficient = coefficientStartingValue * powerStartingValue;
 
-                    inputString = inputString.substring(0, coefficientStart) + newCoefficient + inputString.substring(variableSubstringValue, powerStart) + newPower + inputString.substring(powerEnd, inputString.length());
+                    inputString = inputString.substring(0, coefficientStart) + newCoefficient + inputString.substring(variableSubstringValue, powerStart-1) + newPower + inputString.substring(powerEnd+1, inputString.length());
                     //System.out.println("input string: " + inputString + "\n");
                     stringIterator = inputString.substring(0, coefficientEnd).length() + 2;
                     //System.out.println("string iterator: " + stringIterator + "\n");
