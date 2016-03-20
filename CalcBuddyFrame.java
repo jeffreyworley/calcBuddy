@@ -21,12 +21,16 @@ public class CalcBuddyFrame extends JFrame{
 	private JButton ch5;
 
 	private JLabel title;
+	private JLabel chapterOneLabel = new JLabel("Chapter one");
+	private JLabel chapterTwoLabel = new JLabel("Chapter Two");
+	private JLabel chapterThreeLabel = new JLabel("Chapter three");
+	private JLabel chapterFourLabel = new JLabel("Chapter four");
+	private JLabel chapterFiveLabel = new JLabel("Chapter five");
 	private JLabel explanation;
 	private JTextField input;
 
 
 	private JPanel leftPanel;
-	private JPanel rightPanel;
 	private JPanel generalPanel;
 	private JPanel chapterOne;
 	private JPanel chapterTwo;
@@ -40,7 +44,12 @@ public class CalcBuddyFrame extends JFrame{
 	private GridBagLayout leftGrid;
 	private GridBagConstraints gbcL;
 	private GridBagConstraints gbcR;
-	private GridBagLayout rightGrid;
+
+	private GridBagLayout chapterOneGrid;
+	private GridBagLayout chapterTwoGrid;
+	private GridBagLayout chapterThreeGrid;
+	private GridBagLayout chapterFourGrid;
+	private GridBagLayout chapterFiveGrid;
 
 	private static final int FRAME_WIDTH = 962;
 	private static final int FRAME_HEIGHT = 663;
@@ -54,11 +63,11 @@ public class CalcBuddyFrame extends JFrame{
 		creatLabel();
 
 		leftPanel = new JPanel();
-		rightPanel = new JPanel();
+		chapterOne = new JPanel();
 		generalPanel = new JPanel();
 
-		jps = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, leftPanel, rightPanel);
-		jps.setDividerSize(10);
+		jps = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, leftPanel, chapterOne);
+		jps.setDividerSize(0);
 
 		tb = new JSplitPane(JSplitPane.VERTICAL_SPLIT, generalPanel, jps);
 		tb.setDividerSize(0);
@@ -78,12 +87,32 @@ public class CalcBuddyFrame extends JFrame{
 		leftGrid.setConstraints(ch5, gbcL);
 		leftPanel.add(ch5);
 
-		rightGrid = new GridBagLayout();
-		rightPanel.setLayout(rightGrid);
-		rightPanel.add(explanation);
-		rightPanel.add(input);
-		rightPanel.add(execute);
-		rightPanel.add(output);
+		chapterOneGrid = new GridBagLayout();
+		chapterOne.setLayout(chapterOneGrid);
+		chapterOne.add(explanation);
+		chapterOne.add(input);
+		chapterOne.add(execute);
+		chapterOne.add(output);
+
+		chapterTwo = new JPanel();
+		chapterTwoGrid = new GridBagLayout();
+		chapterTwo.setLayout(chapterTwoGrid);
+		chapterTwo.add(chapterTwoLabel);
+
+		chapterThree = new JPanel();
+		chapterThreeGrid = new GridBagLayout();
+		chapterThree.setLayout(chapterThreeGrid);
+		chapterThree.add(chapterThreeLabel);
+
+		chapterFour = new JPanel();
+		chapterFourGrid = new GridBagLayout();
+		chapterFour.setLayout(chapterFourGrid);
+		chapterFour.add(chapterFourLabel);
+
+		chapterFive = new JPanel();
+		chapterFiveGrid = new GridBagLayout();
+		chapterFive.setLayout(chapterFiveGrid);
+		chapterFive.add(chapterFiveLabel);
 
 		generalPanel.add(title);
 		add(tb);
@@ -131,12 +160,13 @@ public class CalcBuddyFrame extends JFrame{
 		ch5.setActionCommand("ch5");
 		ch5.addActionListener(chapterFiveListener);
 
-
 	}
 
 	private void createTextField(){
 		input = new JTextField(FIELD_WIDTH);
+		ActionListener listener = new EquationListener();
 		input.setText("");
+		input.addActionListener(listener);
 		output = new JTextField(FIELD_WIDTH);
 	}
 
@@ -158,15 +188,15 @@ public class CalcBuddyFrame extends JFrame{
 		public void actionPerformed(ActionEvent e){
 			String pageName = e.getActionCommand();
 			if(pageName.equals("ch1")){
-
+				jps.setRightComponent(chapterOne);
 			} else if(pageName.equals("ch2")){
-
+				jps.setRightComponent(chapterTwo);
 			} else if(pageName.equals("ch3")){
-
+				jps.setRightComponent(chapterThree);
 			} else if(pageName.equals("ch4")){
-
+				jps.setRightComponent(chapterFour);
 			} else if(pageName.equals("ch5")){
-
+				jps.setRightComponent(chapterFive);
 			}
 		}
 	}
