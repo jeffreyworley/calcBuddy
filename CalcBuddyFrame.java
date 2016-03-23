@@ -5,39 +5,15 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-<<<<<<< HEAD
-=======
 import java.awt.BorderLayout;
 import java.awt.GridBagLayout;
 import javax.swing.JSplitPane;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
->>>>>>> master
 
 public class CalcBuddyFrame extends JFrame{
 	
 	private JButton execute;
-<<<<<<< HEAD
-	private JLabel label;
-	private JTextField input;
-	private JPanel panel;
-	private JTextField output;
-
-	private static final int FRAME_WIDTH = 450;
-	private static final int FRAME_HEIGHT = 600;
-	private static final int FIELD_WIDTH = 10;
-
-	private void placeComponents(){
-		createButton();
-		createTextField();
-		creatLabel();
-		panel = new JPanel();
-		panel.add(label);
-		panel.add(input);
-		panel.add(execute);
-		panel.add(output);
-		add(panel);
-=======
 	private JButton ch1;
 	private JButton ch2;
 	private JButton ch3;
@@ -141,7 +117,6 @@ public class CalcBuddyFrame extends JFrame{
 		generalPanel.add(title);
 		add(tb);
 		
->>>>>>> master
 	}
 
 	public CalcBuddyFrame(){
@@ -149,12 +124,6 @@ public class CalcBuddyFrame extends JFrame{
 		setSize(FRAME_WIDTH, FRAME_HEIGHT);
 	}
 
-<<<<<<< HEAD
-	private void createButton(){
-		execute = new JButton("calculate");
-		ActionListener listener = new EquationListener();
-		execute.addActionListener(listener);
-=======
 	private void createButtons(){
 		execute = new JButton("calculate");
 		ActionListener listener = new EquationListener();
@@ -191,43 +160,28 @@ public class CalcBuddyFrame extends JFrame{
 		ch5.setActionCommand("ch5");
 		ch5.addActionListener(chapterFiveListener);
 
->>>>>>> master
 	}
 
 	private void createTextField(){
 		input = new JTextField(FIELD_WIDTH);
-<<<<<<< HEAD
-		input.setText("");
-=======
 		ActionListener listener = new EquationListener();
 		input.setText("");
 		input.addActionListener(listener);
->>>>>>> master
 		output = new JTextField(FIELD_WIDTH);
 	}
 
 	private void creatLabel(){
-<<<<<<< HEAD
-		label = new JLabel("Please type in your equation");
-	}
-
-	class EquationListener implements ActionListener{
-		public void actionPerformed(ActionEvent event){
-=======
 		title = new JLabel("CalcBuddy");
 		explanation = new JLabel("Please type in an eqution to derive.");
 	}
 
 	class EquationListener implements ActionListener{
 		public void actionPerformed(ActionEvent e){
->>>>>>> master
 			String equation = input.getText();
 			PowerRule a = new PowerRule(equation);
 			output.setText(a.calcAnswer());
 		}
 	}
-<<<<<<< HEAD
-=======
 
 	class PageListener implements ActionListener{
 
@@ -246,5 +200,4 @@ public class CalcBuddyFrame extends JFrame{
 			}
 		}
 	}
->>>>>>> master
 }
