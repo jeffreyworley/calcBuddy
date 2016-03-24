@@ -1,3 +1,7 @@
+/**
+    class that handles functions that require power rule to solve the derivative for
+*/
+
 public class PowerRule{
 	private String inputString;
     private String answer;

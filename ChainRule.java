@@ -1,3 +1,7 @@
+/**
+	class that handles functions that require chain rule to solve the derivative for
+*/
+
 public class ChainRule extends QuotientRule{
 
 	/**

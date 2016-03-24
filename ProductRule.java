@@ -1,3 +1,7 @@
+/**
+     class that handles functions that require product rule to solve the derivative for
+*/
+
 public class ProductRule extends PowerRule{  
 
      /**
