@@ -11,6 +11,10 @@ import javax.swing.JSplitPane;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 
+/**
+	controls the Jframe for the GUI for calc buddy
+*/
+
 public class CalcBuddyFrame extends JFrame{
 	
 	private JButton execute;
@@ -55,7 +59,9 @@ public class CalcBuddyFrame extends JFrame{
 	private static final int FRAME_HEIGHT = 663;
 	private static final int FIELD_WIDTH = 10;
 	
-
+	/**
+	initializes all of the possible components to disply
+	*/
 	private void placeComponents(){
 
 		createButtons();
@@ -119,11 +125,17 @@ public class CalcBuddyFrame extends JFrame{
 		
 	}
 
+	/**
+		initializes the init of the components and sets the size of the jframe
+	*/
 	public CalcBuddyFrame(){
 		placeComponents();
 		setSize(FRAME_WIDTH, FRAME_HEIGHT);
 	}
 
+	/**
+		initializes all of the buttons
+	*/
 	private void createButtons(){
 		execute = new JButton("calculate");
 		ActionListener listener = new EquationListener();
@@ -162,6 +174,9 @@ public class CalcBuddyFrame extends JFrame{
 
 	}
 
+	/**
+		initializes the JTextFields for calc buddy
+	*/
 	private void createTextField(){
 		input = new JTextField(FIELD_WIDTH);
 		ActionListener listener = new EquationListener();
@@ -170,11 +185,16 @@ public class CalcBuddyFrame extends JFrame{
 		output = new JTextField(FIELD_WIDTH);
 	}
 
+	/**
+		initializes the Jlabels for calc buddy
+	*/
 	private void creatLabel(){
 		title = new JLabel("CalcBuddy");
 		explanation = new JLabel("Please type in an eqution to derive.");
 	}
-
+	/**
+		listener for the equation text feild
+	*/
 	class EquationListener implements ActionListener{
 		public void actionPerformed(ActionEvent e){
 			String equation = input.getText();
@@ -183,6 +203,9 @@ public class CalcBuddyFrame extends JFrame{
 		}
 	}
 
+	/**
+		listener for the button presses for chapters
+	*/
 	class PageListener implements ActionListener{
 
 		public void actionPerformed(ActionEvent e){
