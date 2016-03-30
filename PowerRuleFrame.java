@@ -147,8 +147,6 @@ public class PowerRuleFrame extends JFrame{
 					newDetailsString += "\n" + "isolate the function: " + evaluatedFunction.get(i).getFunction() + "\n" + "Identify the coefficient: " + evaluatedFunction.get(i).getCoef() + "\n" + "identify the exponent: " + evaluatedFunction.get(i).getExpo() + "\n" + "finally, solve: " + evaluatedFunction.get(i).getDerivative() + "\n";
 				}
 				detailPanel.addText(newDetailsString, currentStart, currentEnd);
-				//outputPanel.repaint();
-				//outputPanel.revalidate();
 			} catch(Exception ex){
 				output.setText("an error has occured");
 			}
